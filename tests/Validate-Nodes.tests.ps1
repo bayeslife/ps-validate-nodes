@@ -8,11 +8,6 @@ Import-Module $path/Validate-Nodes.psm1
 
 InModuleScope Validate-Nodes {
 
-    # function MockTest{
-    #     Write-Host "Mock Test Ran"
-    # }
-    #$mockTest =  "& (Get-Item 'Function:MockTest')"
-
     $mockTest = { Write-host "Mock Test Ran"}  
 
     $shouldThrow = {

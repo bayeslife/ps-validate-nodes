@@ -1,4 +1,4 @@
-# This downloads a test script on multiple destination hosts.
+# This is intended to download a test script on multiple destination hosts and runs it.
 #Requires -Version 3.0
 
 
@@ -80,26 +80,3 @@ function IInvokeCommand{
     )
     return { Invoke-Command -Session $remoteSession -ScriptBlock $executeTest -ArgumentList $content }
 }
-
-  # $ResultXML = Invoke‐Command `
-        #     ‐Session $RemoteSession `
-        #     ‐ScriptBlock {
-        #         $Repo = 'ovf‐release'
-        #         $PackageName = 'myapp‐status'
-        #         $Workspace = $ENV:Temp
-        #                 $Package = Install‐Package `
-        #             ‐Name $PackageName `
-        #             ‐Source "https://nexus.ldstat01.net/nexus/service/local/nuget/$repo/" `
-        #             ‐ProviderName Nuget `
-        #             ‐Destination $Workspace `
-        #             ‐Force
-        #         $TestPath = Join‐Path ‐Path $Workspace ‐ChildPath ([System.IO.Path]::GetFileNameWithoutExtension($Package.Package)
-        #         $null = & "$TestPath\tests\invoke‐tests.ps1" ‐OutputPath $Workspace
-        #         $null = Uninstall‐Package `
-        #             ‐Name $PackageName `
-        #             ‐Destination $Workspace `
-        #             ‐Force
-        #         $TestResultsPath = (Join‐Path ‐Path $Workspace ‐ChildPath 'test‐results.xml')
-        #         Get‐Content ‐Path (Join‐Path ‐Path $Workspace ‐ChildPath $TestResultsPath)
-        #         Remove‐Item ‐Path $TestResultsPath ‐Force
-        #     }
